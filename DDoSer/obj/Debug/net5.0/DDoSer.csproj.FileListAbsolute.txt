@@ -5,7 +5,6 @@ C:\Users\toron\source\repos\DDoSer\DDoSer\bin\Debug\net5.0\DDoSer.runtimeconfig.
 C:\Users\toron\source\repos\DDoSer\DDoSer\bin\Debug\net5.0\DDoSer.dll
 C:\Users\toron\source\repos\DDoSer\DDoSer\bin\Debug\net5.0\ref\DDoSer.dll
 C:\Users\toron\source\repos\DDoSer\DDoSer\bin\Debug\net5.0\DDoSer.pdb
-C:\Users\toron\source\repos\DDoSer\DDoSer\obj\Debug\net5.0\DDoSer.csproj.AssemblyReference.cache
 C:\Users\toron\source\repos\DDoSer\DDoSer\obj\Debug\net5.0\DDoSer.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\toron\source\repos\DDoSer\DDoSer\obj\Debug\net5.0\DDoSer.AssemblyInfoInputs.cache
 C:\Users\toron\source\repos\DDoSer\DDoSer\obj\Debug\net5.0\DDoSer.AssemblyInfo.cs
@@ -18,3 +17,4 @@ C:\Users\toron\source\repos\DDoSer\DDoSer\bin\Debug\net5.0\Cloo.dll
 C:\Users\toron\source\repos\DDoSer\DDoSer\bin\Debug\net5.0\OpenCLlib.dll
 C:\Users\toron\source\repos\DDoSer\DDoSer\bin\Debug\net5.0\OpenCLlib.pdb
 C:\Users\toron\source\repos\DDoSer\DDoSer\obj\Debug\net5.0\DDoSer.csproj.CopyComplete
+C:\Users\toron\source\repos\DDoSer\DDoSer\obj\Debug\net5.0\DDoSer.csproj.AssemblyReference.cache
