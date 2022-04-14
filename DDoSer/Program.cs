@@ -2,6 +2,7 @@
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace MyTasks
 {
@@ -15,6 +16,8 @@ namespace MyTasks
             Console.Write("Workers count: ");
             int numOfThreads = Convert.ToInt32(Console.ReadLine());
 
+            using (Process p = Process.GetCurrentProcess())
+                p.PriorityClass = ProcessPriorityClass.High;
             int count = 0;
 
             Parallel.For(0, numOfThreads, (i) =>
