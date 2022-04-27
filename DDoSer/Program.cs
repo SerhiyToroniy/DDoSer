@@ -17,11 +17,15 @@ namespace MyTasks
             int numOfThreads = Convert.ToInt32(Console.ReadLine());
 
             using (Process p = Process.GetCurrentProcess())
-                p.PriorityClass = ProcessPriorityClass.High;
+                p.PriorityClass = ProcessPriorityClass.RealTime;
+
             int count = 0;
+
+            Thread[] threads = new Thread[numOfThreads];
 
             Parallel.For(0, numOfThreads, (i) =>
             {
+                threads[i] =
                 new Thread(() =>
                 {
                     while (true)
@@ -38,7 +42,12 @@ namespace MyTasks
                             Console.WriteLine(e.Message);
                         }
                     }
-                }).Start();
+                });
+            });
+
+            Parallel.ForEach(threads, (i) =>
+            {
+                i.Start();
             });
         }
     }
