@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Diagnostics;
 using System.Timers;
 
 namespace MyTasks
@@ -29,7 +29,6 @@ namespace MyTasks
 
             using (Process p = Process.GetCurrentProcess())
                 p.PriorityClass = ProcessPriorityClass.RealTime;
-
 
             Thread[] threads = new Thread[numOfThreads];
 
