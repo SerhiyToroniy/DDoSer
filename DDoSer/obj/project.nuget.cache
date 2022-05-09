@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ku6nzrQU0Nl0qm6CvAWQwk5KpMaH/hSwGX91RiLNK7gjxWajq3kTJRLfh+qFF4cJQBkGRtAENtNk2W04KBNMbA==",
+  "dgSpecHash": "UwwUkrnVyd7PdtJnSlaJCAoAW1GHtvKPnYjwFA/Oedy07C8LoJe6L1bi4fwb5qy6dR6NvMntrcMYoM95JjpQcw==",
   "success": true,
   "projectFilePath": "C:\\Users\\toron\\source\\repos\\DDoSer\\DDoSer\\DDoSer.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\toron\\.nuget\\packages\\cloo.clsharp\\1.0.1\\cloo.clsharp.1.0.1.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
