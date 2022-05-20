@@ -7,27 +7,8 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "DDoSer/1.0.0": {
-        "dependencies": {
-          "OpenCLlib": "1.0.0.0"
-        },
         "runtime": {
           "DDoSer.dll": {}
-        }
-      },
-      "OpenCLlib/1.0.0.0": {
-        "runtime": {
-          "OpenCLlib.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "Cloo/0.9.1.0": {
-        "runtime": {
-          "Cloo.dll": {
-            "assemblyVersion": "0.9.1.0",
-            "fileVersion": "0.9.1.0"
-          }
         }
       }
     }
@@ -35,16 +16,6 @@
   "libraries": {
     "DDoSer/1.0.0": {
       "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "OpenCLlib/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Cloo/0.9.1.0": {
-      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

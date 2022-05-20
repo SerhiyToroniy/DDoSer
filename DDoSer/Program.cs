@@ -5,19 +5,21 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 
-namespace MyTasks
+namespace DDoSer
 {
     public class Program
     {
         private static int count = 0;
         private static int countElapsed = 0;
         private static int speed = 0;
-        private static int timerInterval = 1000;
+        private static readonly int timerInterval = 1000;
 
-        static void Main()
+        private static void Main()
         {
-            System.Timers.Timer timer = new System.Timers.Timer();
-            timer.Interval = timerInterval;
+            System.Timers.Timer timer = new()
+            {
+                Interval = timerInterval
+            };
             timer.Elapsed += OnTimedEvent;
             timer.AutoReset = true;
 
@@ -28,7 +30,9 @@ namespace MyTasks
             int numOfThreads = Convert.ToInt32(Console.ReadLine());
 
             using (Process p = Process.GetCurrentProcess())
+            {
                 p.PriorityClass = ProcessPriorityClass.RealTime;
+            }
 
             Thread[] threads = new Thread[numOfThreads];
 
