@@ -1,0 +1,15 @@
+
+*.v2
+*.vsidx
+*.bin
+*.dll
+*.exe
+*.wsuo
+/DDoSer/bin/Release/net8.0
+/DDoSer/obj/Release
+/DDoSer/obj/Debug/net8.0
+/DDoSer/obj/project.nuget.cache
+/DDoSer/obj/project.assets.json
+/DDoSer/obj/DDoSer.csproj.nuget.g.props
+/DDoSer/obj/DDoSer.csproj.nuget.dgspec.json
+/.vs/DDoSer/v17/.suo
